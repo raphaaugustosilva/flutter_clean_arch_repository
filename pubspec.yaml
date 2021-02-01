@@ -1,0 +1,64 @@
+name: poc_flutter_clean_repository
+description: A new Flutter project.
+
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.0
+  firebase_core: ^0.7.0
+  firebase_remote_config: ^0.6.0
+  flutter_secure_storage: ^3.3.5
+  http: ^0.12.2
+  get_it: ^5.0.6
+  flushbar: ^1.10.4
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+      - lib/presentation/ui/assets/images/
+
+  fonts:
+      - family: CircularStd-Black
+        fonts:
+          - asset: lib/presentation/ui/assets/fonts/CircularStd-Black.otf
+          - asset: lib/presentation/ui/assets/fonts/CircularStd-BlackItalic.otf
+            style: italic
+          - asset: lib/presentation/ui/assets/fonts/CircularStd-Black.otf
+            weight: 700
+      - family: CircularStd-Bold
+        fonts:
+          - asset: lib/presentation/ui/assets/fonts/CircularStd-Bold.otf
+          - asset: lib/presentation/ui/assets/fonts/CircularStd-BoldItalic.otf
+            style: italic
+          - asset: lib/presentation/ui/assets/fonts/CircularStd-Bold.otf
+            weight: 700
+      - family: CircularStd-Book
+        fonts:
+          - asset: lib/presentation/ui/assets/fonts/CircularStd-Book.otf
+          - asset: lib/presentation/ui/assets/fonts/CircularStd-BookItalic.otf
+            style: italic
+          - asset: lib/presentation/ui/assets/fonts/CircularStd-Book.otf
+            weight: 700
+      - family: CircularStd-Medium
+        fonts:
+          - asset: lib/presentation/ui/assets/fonts/CircularStd-Medium.otf
+          - asset: lib/presentation/ui/assets/fonts/CircularStd-MediumItalic.otf
+            style: italic
+          - asset: lib/presentation/ui/assets/fonts/CircularStd-Medium.otf
+            weight: 700
