@@ -18,6 +18,7 @@ dependencies:
   firebase_core: ^0.7.0
   firebase_remote_config: ^0.6.0
   flutter_secure_storage: ^3.3.5
+  equatable: ^1.2.5
   http: ^0.12.2
   get_it: ^5.0.6
   flushbar: ^1.10.4
@@ -26,6 +27,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  test:
+  mockito:
+  faker:
 
 flutter:
   uses-material-design: true
