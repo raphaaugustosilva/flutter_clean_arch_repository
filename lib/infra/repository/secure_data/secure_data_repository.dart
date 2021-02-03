@@ -1,6 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:poc_flutter_clean_repository/domain/repositories/i_secure_data_repository.dart';
 
-import 'package:poc_flutter_clean_repository/data/repositories/repositories.dart';
 
 //This implementation uses the flutter_secure_storage plugin, which stores/gets values from device`s secure area (Keystore for iOS and Keychain for Android)
 class SecureDataRepository implements ISecureDataRepository {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:poc_flutter_clean_repository/data/repositories/repositories.dart';
+import 'package:poc_flutter_clean_repository/services/repositories/repositories.dart';
 import 'package:poc_flutter_clean_repository/presentation/ui/pages/pages.dart';
 import 'package:poc_flutter_clean_repository/presentation/presenters/interfaces.dart';
 import 'package:poc_flutter_clean_repository/presentation/presenters/presenters.dart';
@@ -13,7 +13,7 @@ Widget makeLoadInitialDataPage() {
 
   ILoadInitialDataPresenter loadInitialDataPresenter = StreamLoadInitialDataPresenter(
     secureDataRepository: _secureDataRepository,
-    remoteConfigRepository: _remoteConfigRepository,
+    remoteConfigRemote: _remoteConfigRepository,
   );
 
   return LoadInitialDataPage(loadInitialDataPresenter);

@@ -26,7 +26,12 @@ void main() async {
   ));
 
   getIt.registerSingleton<KeyboardManager>(KeyboardManager());
-  getIt.registerSingleton<AppConfig>(makeAppConfig());
+
+  //Init/load the complete app config
+  AppConfig appConfig = AppConfig();
+  await appConfig.init();
+  //print(_appConfig.toString());
+  getIt.registerSingleton<AppConfig>(appConfig);
 
   runApp(App());
 }

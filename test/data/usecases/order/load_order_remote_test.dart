@@ -2,13 +2,13 @@ import 'dart:convert';
 
 import 'package:faker/faker.dart';
 import 'package:mockito/mockito.dart';
+import 'package:poc_flutter_clean_repository/crosscutting/remote/order/i_load_order_remote.dart';
 import 'package:test/test.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../mocks/mocks.dart';
 import 'package:poc_flutter_clean_repository/domain/entities/entities.dart';
-import 'package:poc_flutter_clean_repository/data/usecases/usecases.dart';
-import 'package:poc_flutter_clean_repository/infra/usecases/order/load_order_remote.dart';
+import 'package:poc_flutter_clean_repository/infra/remote/order/load_order_remote.dart';
 
 class HttpClientSpy extends Mock implements http.Client {}
 

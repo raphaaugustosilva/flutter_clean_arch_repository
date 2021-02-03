@@ -1,14 +1,9 @@
 import 'dart:convert';
 
 import 'package:poc_flutter_clean_repository/domain/entities/entities.dart';
-import 'package:poc_flutter_clean_repository/data/usecases/usecases.dart';
-import 'package:poc_flutter_clean_repository/data/models/models.dart';
+import 'package:poc_flutter_clean_repository/domain/repositories/i_order_repository.dart';
 
-class LoadOrderLocal implements ILoadOrderLocal {
-  //final ILocalStorage localStorage;
-
-  //LocalLoadOrders({@required this.localStorage});
-
+class OrderRepository implements IOrderRepository {
   @override
   Future<List<OrderEntity>> load() async {
     try {
@@ -26,5 +21,10 @@ class LoadOrderLocal implements ILoadOrderLocal {
     }
   }
 
-  List<OrderEntity> _mapToEntity(dynamic list) => list.map<OrderEntity>((json) => OrderModel.fromJson(json).toEntity()).toList();
+  List<OrderEntity> _mapToEntity(dynamic list) => list.map<OrderEntity>((json) => OrderEntity.fromJson(json)).toList();
+
+  @override
+  Future<void> add(OrderEntity order) {
+    throw UnimplementedError();
+  }
 }

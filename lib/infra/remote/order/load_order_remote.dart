@@ -2,10 +2,12 @@ import 'dart:convert';
 import 'package:meta/meta.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:poc_flutter_clean_repository/crosscutting/remote/order/i_load_order_remote.dart';
+import 'package:poc_flutter_clean_repository/crosscutting/remote/order/order_response.dart';
 
 import 'package:poc_flutter_clean_repository/domain/entities/entities.dart';
-import 'package:poc_flutter_clean_repository/data/models/models.dart';
-import 'package:poc_flutter_clean_repository/data/usecases/usecases.dart';
+
+
 
 class LoadOrderRemote implements ILoadOrderRemote {
   final http.Client httpClient;

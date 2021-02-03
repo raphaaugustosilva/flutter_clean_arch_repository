@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:poc_flutter_clean_repository/data/repositories/repositories.dart';
+import 'package:poc_flutter_clean_repository/services/repositories/repositories.dart';
 import 'package:poc_flutter_clean_repository/presentation/presenters/order/i_order_list_presenter.dart';
 import 'package:poc_flutter_clean_repository/presentation/presenters/order/stream_order_list_presenter.dart';
 import 'package:poc_flutter_clean_repository/presentation/ui/pages/order/order_list_page.dart';
