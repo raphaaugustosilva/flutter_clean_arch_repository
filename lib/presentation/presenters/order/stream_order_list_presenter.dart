@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:meta/meta.dart';
 
 import '../interfaces.dart';
+import 'package:poc_flutter_clean_repository/domain/usecases/order/i_load_order.dart';
 import 'package:poc_flutter_clean_repository/domain/entities/order/order_entity.dart';
-import 'package:poc_flutter_clean_repository/domain/repositories/i_order_repository.dart';
 
 class OrderListState {
   List<OrderEntity> orders;
@@ -12,7 +12,7 @@ class OrderListState {
 
 class StreamOrderListPresenter implements IOrderListPresenter {
   //final INavigation _navigation = GetIt.instance.get<INavigation>();
-  final IOrderRepository orderRepository;
+  final ILoadOrder loadOrder;
 
   var _controller = StreamController<OrderListState>.broadcast();
   var _state = OrderListState();
@@ -20,7 +20,7 @@ class StreamOrderListPresenter implements IOrderListPresenter {
   Stream<List<OrderEntity>> get ordersStream => _controller?.stream?.map((state) => state.orders)?.distinct();
   Stream<bool> get isLoadingStream => _controller?.stream?.map((state) => state.isLoading)?.distinct();
 
-  StreamOrderListPresenter({@required this.orderRepository});
+  StreamOrderListPresenter({@required this.loadOrder});
 
   void _update() => _controller?.add(_state);
 
@@ -36,7 +36,7 @@ class StreamOrderListPresenter implements IOrderListPresenter {
       _update();
 
       await Future.delayed(Duration(seconds: 2));
-      final List<OrderEntity> orders = await orderRepository.load();
+      final List<OrderEntity> orders = await loadOrder.load();
 
       _state.orders = orders;
       _update();
