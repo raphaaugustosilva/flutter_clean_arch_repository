@@ -7,8 +7,8 @@ import 'package:poc_flutter_clean_repository/presentation/presenters/interfaces.
 import 'package:poc_flutter_clean_repository/presentation/presenters/presenters.dart';
 
 Widget makeLoadInitialDataPage() {
-  ILoadConfig _loadConfig = makeLoadConfig();
+  ILoadConfig loadConfig = makeLoadConfig();
 
-  ILoadInitialDataPresenter loadInitialDataPresenter = StreamLoadInitialDataPresenter(loadConfig: _loadConfig);
+  ILoadInitialDataPresenter loadInitialDataPresenter = StreamLoadInitialDataPresenter(loadConfig: loadConfig);
   return LoadInitialDataPage(loadInitialDataPresenter);
 }
