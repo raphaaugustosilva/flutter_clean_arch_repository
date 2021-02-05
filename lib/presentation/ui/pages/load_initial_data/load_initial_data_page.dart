@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../presenters/interfaces.dart';
-import '../../components/components.dart';
 import '../../theme/theme.dart';
+import '../../components/components.dart';
+import '../../../presenters/interfaces.dart';
 
 class LoadInitialDataPage extends StatefulWidget {
   final ILoadInitialDataPresenter presenter;
@@ -22,7 +22,7 @@ class _LoadInitialDataState extends State<LoadInitialDataPage> {
 
   @override
   Widget build(BuildContext context) {
-    widget.presenter.loadInitialData();
+    widget.presenter.loadData();
 
     return Scaffold(
       backgroundColor: AppThemeColors.white,

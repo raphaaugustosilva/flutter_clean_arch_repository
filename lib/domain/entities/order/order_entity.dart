@@ -12,7 +12,6 @@ class OrderEntity extends Equatable {
 
   OrderEntity({@required this.id, @required this.title, @required this.total, this.isSynchronized});
 
-  //TODO From Jsom fica na entity?
   factory OrderEntity.fromJson(Map json) {
     if (!json.keys.toSet().containsAll(['id', 'title', 'total', 'isSynchronized'])) {
       throw Exception("Dados inválidos");

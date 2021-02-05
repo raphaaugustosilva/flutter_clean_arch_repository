@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:poc_flutter_clean_repository/domain/entities/entities.dart';
+import 'package:poc_flutter_clean_repository/domain/entities/order/order_entity.dart';
 import 'package:poc_flutter_clean_repository/domain/repositories/i_order_repository.dart';
 
 class OrderRepository implements IOrderRepository {

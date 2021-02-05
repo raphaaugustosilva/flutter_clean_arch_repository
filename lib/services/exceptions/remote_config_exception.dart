@@ -1,3 +1,4 @@
+//TODO devo deixar aqui? ou na camada app?
 class RemoteConfigExpiredException implements Exception {
   Exception innerException;
   StackTrace stackTrace;

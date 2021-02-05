@@ -3,10 +3,10 @@ import 'package:meta/meta.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:get_it/get_it.dart';
-import 'package:poc_flutter_clean_repository/domain/usecases/config/i_load_config.dart';
 
 import '../interfaces.dart';
 import '../../ui/utils/utils.dart';
+import 'package:poc_flutter_clean_repository/domain/usecases/config/i_load_config.dart';
 
 class LoadInitialDataState {}
 
@@ -24,14 +24,14 @@ class StreamLoadInitialDataPresenter implements ILoadInitialDataPresenter {
   }
 
   @override
-  Future<void> loadInitialData() async {
+  Future<void> loadData() async {
     await Future.delayed(Duration(seconds: 2));
 
     try {
       //final account = await loadCurrentUser.load();
       final account = null;
 
-      await loadConfig.getConfig();
+      await loadConfig.load();
 
       goToInitialPage(userAlreadyLoggedId: account?.id != null);
     } catch (e) {}

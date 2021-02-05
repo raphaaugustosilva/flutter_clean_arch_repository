@@ -1,8 +1,8 @@
 abstract class ISecureDataRepository {
-  Future<void> storeKeyValue(String key, String value);
-  Future<void> storeMap(Map<String, String> mapConfigsKeyValue); //TODO add
-  Future<String> getFromKey(String key); //TODO get
+  Future<void> addMap(Map<String, String> values);
+  Future<void> addKeyValue(String key, String value);
+  Future<String> get(String key);
   Future<Map<String, String>> getAll();
-  Future<void> deleteFromKey(String key);
+  Future<void> delete(String key);
   Future<void> deleteAll();
 }

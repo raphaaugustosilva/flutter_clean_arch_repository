@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'package:meta/meta.dart';
 
+import '../interfaces.dart';
 import 'package:poc_flutter_clean_repository/domain/entities/order/order_entity.dart';
 import 'package:poc_flutter_clean_repository/domain/repositories/i_order_repository.dart';
-
-import 'i_order_list_presenter.dart';
 
 class OrderListState {
   List<OrderEntity> orders;

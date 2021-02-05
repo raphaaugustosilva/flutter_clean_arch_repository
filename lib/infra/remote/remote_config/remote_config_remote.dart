@@ -1,7 +1,7 @@
 import 'package:firebase_remote_config/firebase_remote_config.dart';
-import 'package:poc_flutter_clean_repository/crosscutting/remote/remote_config/i_remote_config_remote.dart';
 
-import 'package:poc_flutter_clean_repository/services/exceptions/exceptions.dart';
+import 'package:poc_flutter_clean_repository/services/exceptions/remote_config_exception.dart';
+import 'package:poc_flutter_clean_repository/crosscutting/remote/remote_config/i_remote_config_remote.dart';
 
 class RemoteConfigRemote implements IRemoteConfigRemote {
   RemoteConfig _remoteConfig;

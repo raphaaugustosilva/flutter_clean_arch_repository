@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
-\import 'package:poc_flutter_clean_repository/app/utils/app_config/config_keys.dart';
-import 'package:poc_flutter_clean_repository/app/utils/app_config/local_config_secrets.dart';
-import 'package:poc_flutter_clean_repository/crosscutting/remote/remote_config/i_remote_config_remote.dart';
+
 import 'package:poc_flutter_clean_repository/domain/repositories/i_secure_data_repository.dart';
 import 'package:poc_flutter_clean_repository/domain/usecases/config/i_load_config.dart';
+import 'package:poc_flutter_clean_repository/app/utils/app_config/config_keys.dart';
+import 'package:poc_flutter_clean_repository/app/utils/app_config/local_config_secrets.dart';
+import 'package:poc_flutter_clean_repository/crosscutting/remote/remote_config/i_remote_config_remote.dart';
 
 class LoadConfig implements ILoadConfig {
   final ISecureDataRepository secureDataRepository;
@@ -12,8 +13,7 @@ class LoadConfig implements ILoadConfig {
   LoadConfig({@required this.secureDataRepository, @required this.remoteConfigRemote});
 
   @override
-  Future<void> getConfig() async {}
-  Future fetchAppConfigurations() async {
+  Future<void> load() async {
     try {
       Map<String, String> mapConfigsKeyValue = Map<String, String>();
 
@@ -35,7 +35,7 @@ class LoadConfig implements ILoadConfig {
 
       //Now stores in the device`s secure area (keystore and keychain)
       await secureDataRepository.deleteAll();
-      await secureDataRepository.storeMap(mapConfigsKeyValue);
+      await secureDataRepository.addMap(mapConfigsKeyValue);
     } catch (e) {
       print("Erro ao recuperar as configurações seguras do app. Detalhes: $e");
     }
