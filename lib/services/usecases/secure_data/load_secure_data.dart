@@ -11,9 +11,4 @@ class GetSecureData implements IGetSecureData {
   Future<String> get(String key) async {
     return await secureDataRepository.get(key);
   }
-
-  @override
-  Future<Map<String, String>> getAll() async {
-    return await secureDataRepository.getAll();
-  }
 }

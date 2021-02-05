@@ -2,7 +2,6 @@ import 'package:meta/meta.dart';
 
 import 'package:poc_flutter_clean_repository/domain/entities/order/order_entity.dart';
 
-//TODO Porque nao fica no infra/remote?
 class OrderResponse extends OrderEntity {
   final String id;
   final String title;

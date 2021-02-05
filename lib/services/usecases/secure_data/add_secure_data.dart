@@ -8,11 +8,6 @@ class AddSecureData implements IAddSecureData {
   AddSecureData({@required this.secureDataRepository});
 
   @override
-  Future<void> addMap(Map<String, String> values) async {
-    return await secureDataRepository.addMap(values);
-  }
-
-  @override
   Future<void> addKeyValue(String key, String value) async {
     return await secureDataRepository.addKeyValue(key, value);
   }

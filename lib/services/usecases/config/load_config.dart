@@ -4,7 +4,7 @@ import 'package:poc_flutter_clean_repository/domain/repositories/i_secure_data_r
 import 'package:poc_flutter_clean_repository/domain/usecases/config/i_load_config.dart';
 import 'package:poc_flutter_clean_repository/app/utils/app_config/config_keys.dart';
 import 'package:poc_flutter_clean_repository/app/utils/app_config/local_config_secrets.dart';
-import 'package:poc_flutter_clean_repository/crosscutting/remote/remote_config/i_remote_config_remote.dart';
+import 'package:poc_flutter_clean_repository/infra/crosscutting/firebase/remote_config/interfaces/i_remote_config_remote.dart';
 
 class LoadConfig implements ILoadConfig {
   final ISecureDataRepository secureDataRepository;

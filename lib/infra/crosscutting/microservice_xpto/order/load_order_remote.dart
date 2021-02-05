@@ -3,9 +3,9 @@ import 'package:meta/meta.dart';
 
 import 'package:http/http.dart' as http;
 
+import './interfaces/i_load_order_remote.dart';
+import './models/order_response.dart';
 import 'package:poc_flutter_clean_repository/domain/entities/order/order_entity.dart';
-import 'package:poc_flutter_clean_repository/crosscutting/remote/order/order_response.dart';
-import 'package:poc_flutter_clean_repository/crosscutting/remote/order/i_load_order_remote.dart';
 
 class LoadOrderRemote implements ILoadOrderRemote {
   final http.Client httpClient;
