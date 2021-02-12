@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../theme/theme.dart';
-import '../../components/components.dart';
-import '../../../presenters/interfaces.dart';
+import 'package:poc_flutter_clean_repository/presentation/ui/theme/theme.dart';
+import 'package:poc_flutter_clean_repository/presentation/ui/components/components.dart';
+import 'package:poc_flutter_clean_repository/presentation/presenters/load_initial_data/i_load_initial_data_presenter.dart';
 
 class LoadInitialDataPage extends StatefulWidget {
   final ILoadInitialDataPresenter presenter;

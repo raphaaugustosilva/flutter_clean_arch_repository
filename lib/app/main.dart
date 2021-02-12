@@ -4,27 +4,17 @@ import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import './factories/pages/load_initial_data_page_factory.dart';
-import './factories/pages/order/order_list_page_factory.dart';
+import 'package:poc_flutter_clean_repository/app/di/di.dart';
+import 'package:poc_flutter_clean_repository/utils/connection_monitor/i_connection_monitor.dart';
 import 'package:poc_flutter_clean_repository/presentation/ui/theme/theme.dart';
 import 'package:poc_flutter_clean_repository/presentation/ui/utils/utils.dart';
 
 void main() async {
   await _initializeFirebase();
-  GetIt getIt = GetIt.instance;
-
-  getIt.registerSingleton<INavigation>(Navigation.init(
-    pages: [
-      NavigationPage(NavigationRoutes.root, makeLoadInitialDataPage),
-      NavigationPage(NavigationRoutes.loadInitialData, makeLoadInitialDataPage),
-      NavigationPage(NavigationRoutes.orderList, makeOrderListPage),
-    ],
-    navigatorKey: GlobalKey<NavigatorState>(),
-  ));
-
-  getIt.registerSingleton<KeyboardManager>(KeyboardManager());
-
+  await configureInjection();
   runApp(App());
+
+  GetIt.instance.get<IConnectionMonitor>().init(); //Initialize the connection monitor
 }
 
 Future<void> _initializeFirebase() async {

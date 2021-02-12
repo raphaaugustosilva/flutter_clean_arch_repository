@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+
+import '../../components/components.dart';
 import 'package:poc_flutter_clean_repository/domain/entities/order/order_entity.dart';
 import 'package:poc_flutter_clean_repository/presentation/presenters/order/i_order_list_presenter.dart';
 import 'package:poc_flutter_clean_repository/presentation/ui/theme/app_text_theme.dart';
-
-import '../../components/components.dart';
 
 class OrderListPage extends StatefulWidget {
   final IOrderListPresenter presenter;
@@ -58,7 +58,7 @@ class _OrderListPageState extends State<OrderListPage> {
                           children: [
                             Text(snapshot.data[index].title ?? "", style: AppTextTheme.h2(color: Colors.blue)),
                             Text(
-                              "Total: "+ snapshot.data[index].total?.toString() ?? "",
+                              "Total: " + snapshot.data[index].total?.toString() ?? "",
                               style: AppTextTheme.inputText(),
                             ),
                           ],

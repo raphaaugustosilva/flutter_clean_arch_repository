@@ -6,9 +6,9 @@ import 'package:mockito/mockito.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../mocks/mocks.dart';
-import 'package:poc_flutter_clean_repository/infra/crosscutting/microservice_xpto/order/load_order_remote.dart';
-import 'package:poc_flutter_clean_repository/infra/crosscutting/microservice_xpto/order/interfaces/i_load_order_remote.dart';
 import 'package:poc_flutter_clean_repository/domain/entities/order/order_entity.dart';
+import 'package:poc_flutter_clean_repository/crosscutting/microservice_xpto/order/interfaces/i_load_order_remote.dart';
+import 'package:poc_flutter_clean_repository/crosscutting/microservice_xpto/order/load_order_remote.dart';
 
 class HttpClientSpy extends Mock implements http.Client {}
 

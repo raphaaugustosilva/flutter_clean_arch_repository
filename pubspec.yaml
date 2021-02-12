@@ -22,6 +22,7 @@ dependencies:
   http: ^0.12.2
   get_it: ^5.0.6
   flushbar: ^1.10.4
+  connectivity: ^2.0.2
 
 
 dev_dependencies:

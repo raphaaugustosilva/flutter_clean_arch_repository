@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
 
 abstract class INavigation {
   final List<INavigationPage> pages;
@@ -12,9 +13,8 @@ abstract class INavigation {
   void backNavigationUntil(String pageName);
 }
 
-abstract class INavigationPage {
+abstract class INavigationPage<T> {
   final String route;
-  final dynamic page;
-
-  INavigationPage(this.route, this.page);
+  dynamic get page;
+  INavigationPage(this.route);
 }

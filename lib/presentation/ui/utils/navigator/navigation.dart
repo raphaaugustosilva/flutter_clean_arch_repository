@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../ui/utils/navigator/i_navigation.dart';
 
 typedef NavigationPageBuilder = Widget Function();
 
-class NavigationPage extends INavigationPage {
-  NavigationPage(String route, NavigationPageBuilder page) : super(route, page);
+class NavigationPage<T> extends INavigationPage<T> {
+  NavigationPage(String route) : super(route);
+  dynamic get page => GetIt.instance.get<T>();
 }
 
 class Navigation implements INavigation {
@@ -18,12 +20,11 @@ class Navigation implements INavigation {
   RouteFactory pagesRouteFactory() {
     return (settings) {
       String routeName = settings.name;
-      Widget routePage = pages?.firstWhere((e) => e.route == routeName, orElse: () => null)?.page();
-      //if (routePage == null) return null;
+      dynamic pageWidget = pages?.firstWhere((e) => e.route == routeName, orElse: () => null)?.page;
 
       return MaterialPageRoute(
         settings: RouteSettings(name: settings.name),
-        builder: (BuildContext context) => routePage,
+        builder: (BuildContext context) => pageWidget,
       );
     };
   }
