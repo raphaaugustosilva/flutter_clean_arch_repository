@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../../components/components.dart';
-import 'package:poc_flutter_clean_repository/domain/entities/order/order_entity.dart';
-import 'package:poc_flutter_clean_repository/presentation/presenters/order/i_order_list_presenter.dart';
+import 'package:poc_flutter_clean_repository/domain/entities/order/order.dart';
 import 'package:poc_flutter_clean_repository/presentation/ui/theme/app_text_theme.dart';
+import 'package:poc_flutter_clean_repository/presentation/presenters/order/stream_order_list_presenter.dart';
 
-class OrderListPage extends StatefulWidget {
-  final IOrderListPresenter presenter;
-  OrderListPage(this.presenter);
+class StreamOrderListPage extends StatefulWidget {
+  final StreamOrderListPresenter presenter;
+  StreamOrderListPage({@required this.presenter});
 
   @override
-  _OrderListPageState createState() => _OrderListPageState();
+  _StreamOrderListPageState createState() => _StreamOrderListPageState();
 }
 
-class _OrderListPageState extends State<OrderListPage> {
+class _StreamOrderListPageState extends State<StreamOrderListPage> {
   @override
   void dispose() {
     super.dispose();
@@ -43,7 +43,7 @@ class _OrderListPageState extends State<OrderListPage> {
                   return snapshot.data == true ? LoadingComponent() : SizedBox.shrink();
                 },
               ),
-              StreamBuilder<List<OrderEntity>>(
+              StreamBuilder<List<Order>>(
                 stream: widget.presenter.ordersStream,
                 builder: (context, snapshot) {
                   return ListView.builder(

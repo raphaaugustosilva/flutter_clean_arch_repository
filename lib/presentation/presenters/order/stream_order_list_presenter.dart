@@ -1,26 +1,25 @@
 import 'dart:async';
 import 'package:meta/meta.dart';
 
-import 'package:poc_flutter_clean_repository/domain/usecases/order/i_load_order.dart';
-import 'package:poc_flutter_clean_repository/domain/entities/order/order_entity.dart';
-import 'package:poc_flutter_clean_repository/presentation/presenters/order/i_order_list_presenter.dart';
+import 'package:poc_flutter_clean_repository/domain/usecases/order/i_get_order.dart';
+import 'package:poc_flutter_clean_repository/domain/entities/order/order.dart';
 
 class OrderListState {
-  List<OrderEntity> orders;
+  List<Order> orders;
   bool isLoading = false;
 }
 
-class StreamOrderListPresenter implements IOrderListPresenter {
+class StreamOrderListPresenter {
   //final INavigation _navigation = GetIt.instance.get<INavigation>();
-  final ILoadOrder loadOrder;
+  final IGetOrder getOrder;
 
   var _controller = StreamController<OrderListState>.broadcast();
   var _state = OrderListState();
 
-  Stream<List<OrderEntity>> get ordersStream => _controller?.stream?.map((state) => state.orders)?.distinct();
+  Stream<List<Order>> get ordersStream => _controller?.stream?.map((state) => state.orders)?.distinct();
   Stream<bool> get isLoadingStream => _controller?.stream?.map((state) => state.isLoading)?.distinct();
 
-  StreamOrderListPresenter({@required this.loadOrder});
+  StreamOrderListPresenter({@required this.getOrder});
 
   void _update() => _controller?.add(_state);
 
@@ -29,14 +28,13 @@ class StreamOrderListPresenter implements IOrderListPresenter {
     _controller = null;
   }
 
-  @override
   Future<void> loadData() async {
     try {
       _state.isLoading = true;
       _update();
 
       await Future.delayed(Duration(seconds: 2));
-      final List<OrderEntity> orders = await loadOrder.load();
+      final List<Order> orders = await getOrder.execute();
 
       _state.orders = orders;
       _update();

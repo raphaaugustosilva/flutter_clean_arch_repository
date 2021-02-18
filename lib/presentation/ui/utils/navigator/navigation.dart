@@ -20,10 +20,11 @@ class Navigation implements INavigation {
   RouteFactory pagesRouteFactory() {
     return (settings) {
       String routeName = settings.name;
+      Map<String, dynamic> arguments = settings.arguments;
       dynamic pageWidget = pages?.firstWhere((e) => e.route == routeName, orElse: () => null)?.page;
 
       return MaterialPageRoute(
-        settings: RouteSettings(name: settings.name),
+        settings: RouteSettings(name: settings.name, arguments: arguments),
         builder: (BuildContext context) => pageWidget,
       );
     };

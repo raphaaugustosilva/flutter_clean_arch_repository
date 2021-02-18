@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:poc_flutter_clean_repository/domain/entities/order/order_entity.dart';
+import 'package:poc_flutter_clean_repository/domain/entities/order/order.dart';
 import 'package:poc_flutter_clean_repository/domain/repositories/i_order_repository.dart';
 
 class OrderRepository implements IOrderRepository {
   @override
-  Future<List<OrderEntity>> load() async {
+  Future<List<Order>> load() async {
     try {
       //final data = await localStorage.fetch('orders');
 
@@ -21,10 +21,10 @@ class OrderRepository implements IOrderRepository {
     }
   }
 
-  List<OrderEntity> _mapToEntity(dynamic list) => list.map<OrderEntity>((json) => OrderEntity.fromJson(json)).toList();
+  List<Order> _mapToEntity(dynamic list) => list.map<Order>((json) => Order.fromJson(json)).toList();
 
   @override
-  Future<void> add(OrderEntity order) {
+  Future<Order> add(Order order) {
     throw UnimplementedError();
   }
 }

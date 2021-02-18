@@ -1,6 +1,6 @@
-import 'package:poc_flutter_clean_repository/domain/entities/order/order_entity.dart';
+import 'package:poc_flutter_clean_repository/domain/entities/order/order.dart';
 
 abstract class IOrderRepository {
-  Future<List<OrderEntity>> load();
-  Future<void> add(OrderEntity order);
+  Future<List<Order>> load();
+  Future<Order> add(Order order);
 }

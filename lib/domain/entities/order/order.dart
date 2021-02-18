@@ -2,7 +2,7 @@ import 'package:meta/meta.dart';
 
 import 'package:equatable/equatable.dart';
 
-class OrderEntity extends Equatable {
+class Order extends Equatable {
   final String id;
   final String title;
   final double total;
@@ -10,13 +10,13 @@ class OrderEntity extends Equatable {
 
   List get props => [id, title, total];
 
-  OrderEntity({@required this.id, @required this.title, @required this.total, this.isSynchronized});
+  Order({@required this.id, @required this.title, @required this.total, this.isSynchronized});
 
-  factory OrderEntity.fromJson(Map json) {
+  factory Order.fromJson(Map json) {
     if (!json.keys.toSet().containsAll(['id', 'title', 'total', 'isSynchronized'])) {
       throw Exception("Dados inválidos");
     }
-    return OrderEntity(
+    return Order(
       id: json['id'],
       title: json['title'],
       total: json['total'],

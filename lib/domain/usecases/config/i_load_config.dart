@@ -1,3 +1,3 @@
 abstract class ILoadConfig {
-  Future<void> load();
+  Future<void> execute();
 }

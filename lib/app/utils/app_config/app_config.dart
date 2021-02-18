@@ -7,12 +7,12 @@ import 'package:poc_flutter_clean_repository/domain/repositories/i_secure_data_r
 class AppConfig {
   final ISecureDataRepository secureDataRepository;
 
-  AppSync synchronization;
-  AppShowcase showcase;
+  static AppSync synchronization;
+  static AppShowcase showcase;
 
   AppConfig({@required this.secureDataRepository}) {
-    this.synchronization = AppSync(this.secureDataRepository);
-    this.showcase = AppShowcase(this.secureDataRepository);
+    synchronization = AppSync(this.secureDataRepository);
+    showcase = AppShowcase(this.secureDataRepository);
   }
 
   Future init() async {

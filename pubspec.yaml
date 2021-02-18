@@ -23,7 +23,8 @@ dependencies:
   get_it: ^5.0.6
   flushbar: ^1.10.4
   connectivity: ^2.0.2
-
+  mobx:
+  flutter_mobx: ^1.1.0+2
 
 dev_dependencies:
   flutter_test:
@@ -31,39 +32,41 @@ dev_dependencies:
   test:
   mockito:
   faker:
+  build_runner:
+  mobx_codegen: ^1.1.2 #flutter packages pub run build_runner build
 
 flutter:
   uses-material-design: true
 
   assets:
-      - lib/presentation/ui/assets/images/
+    - lib/presentation/ui/assets/images/
 
   fonts:
-      - family: CircularStd-Black
-        fonts:
-          - asset: lib/presentation/ui/assets/fonts/CircularStd-Black.otf
-          - asset: lib/presentation/ui/assets/fonts/CircularStd-BlackItalic.otf
-            style: italic
-          - asset: lib/presentation/ui/assets/fonts/CircularStd-Black.otf
-            weight: 700
-      - family: CircularStd-Bold
-        fonts:
-          - asset: lib/presentation/ui/assets/fonts/CircularStd-Bold.otf
-          - asset: lib/presentation/ui/assets/fonts/CircularStd-BoldItalic.otf
-            style: italic
-          - asset: lib/presentation/ui/assets/fonts/CircularStd-Bold.otf
-            weight: 700
-      - family: CircularStd-Book
-        fonts:
-          - asset: lib/presentation/ui/assets/fonts/CircularStd-Book.otf
-          - asset: lib/presentation/ui/assets/fonts/CircularStd-BookItalic.otf
-            style: italic
-          - asset: lib/presentation/ui/assets/fonts/CircularStd-Book.otf
-            weight: 700
-      - family: CircularStd-Medium
-        fonts:
-          - asset: lib/presentation/ui/assets/fonts/CircularStd-Medium.otf
-          - asset: lib/presentation/ui/assets/fonts/CircularStd-MediumItalic.otf
-            style: italic
-          - asset: lib/presentation/ui/assets/fonts/CircularStd-Medium.otf
-            weight: 700
+    - family: CircularStd-Black
+      fonts:
+        - asset: lib/presentation/ui/assets/fonts/CircularStd-Black.otf
+        - asset: lib/presentation/ui/assets/fonts/CircularStd-BlackItalic.otf
+          style: italic
+        - asset: lib/presentation/ui/assets/fonts/CircularStd-Black.otf
+          weight: 700
+    - family: CircularStd-Bold
+      fonts:
+        - asset: lib/presentation/ui/assets/fonts/CircularStd-Bold.otf
+        - asset: lib/presentation/ui/assets/fonts/CircularStd-BoldItalic.otf
+          style: italic
+        - asset: lib/presentation/ui/assets/fonts/CircularStd-Bold.otf
+          weight: 700
+    - family: CircularStd-Book
+      fonts:
+        - asset: lib/presentation/ui/assets/fonts/CircularStd-Book.otf
+        - asset: lib/presentation/ui/assets/fonts/CircularStd-BookItalic.otf
+          style: italic
+        - asset: lib/presentation/ui/assets/fonts/CircularStd-Book.otf
+          weight: 700
+    - family: CircularStd-Medium
+      fonts:
+        - asset: lib/presentation/ui/assets/fonts/CircularStd-Medium.otf
+        - asset: lib/presentation/ui/assets/fonts/CircularStd-MediumItalic.otf
+          style: italic
+        - asset: lib/presentation/ui/assets/fonts/CircularStd-Medium.otf
+          weight: 700

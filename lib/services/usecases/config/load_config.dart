@@ -13,7 +13,7 @@ class LoadConfig implements ILoadConfig {
   LoadConfig({@required this.secureDataRepository, @required this.remoteConfigRemote});
 
   @override
-  Future<void> load() async {
+  Future<void> execute() async {
     try {
       Map<String, String> mapConfigsKeyValue = Map<String, String>();
 

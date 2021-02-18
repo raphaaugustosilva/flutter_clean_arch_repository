@@ -4,28 +4,16 @@ import 'package:flutter/foundation.dart';
 
 import 'package:get_it/get_it.dart';
 
-import './i_load_initial_data_presenter.dart';
 import 'package:poc_flutter_clean_repository/domain/repositories/i_secure_data_repository.dart';
 import 'package:poc_flutter_clean_repository/domain/usecases/config/i_load_config.dart';
 import 'package:poc_flutter_clean_repository/app/utils/app_config/app_config.dart';
 import 'package:poc_flutter_clean_repository/presentation/ui/utils/navigator/navigationRoutes.dart';
 import 'package:poc_flutter_clean_repository/presentation/ui/utils/navigator/i_navigation.dart';
 
-class LoadInitialDataState {}
-
-class StreamLoadInitialDataPresenter implements ILoadInitialDataPresenter {
+class LoadInitialDataPresenter {
   final ILoadConfig loadConfig;
+  LoadInitialDataPresenter({@required this.loadConfig});
 
-  var _controller = StreamController<LoadInitialDataState>.broadcast();
-
-  StreamLoadInitialDataPresenter({@required this.loadConfig});
-
-  void dispose() {
-    _controller?.close();
-    _controller = null;
-  }
-
-  @override
   Future<void> loadData() async {
     await Future.delayed(Duration(seconds: 2));
     print("Entrou no load data do Stream");
@@ -34,7 +22,7 @@ class StreamLoadInitialDataPresenter implements ILoadInitialDataPresenter {
       //final account = await loadCurrentUser.load();
       final account = null;
 
-      await loadConfig.load();
+      await loadConfig.execute();
       await initAppConfig();
 
       goToInitialPage(userAlreadyLoggedId: account?.id != null);
@@ -46,12 +34,11 @@ class StreamLoadInitialDataPresenter implements ILoadInitialDataPresenter {
     AppConfig appConfig = AppConfig(secureDataRepository: GetIt.instance.get<ISecureDataRepository>());
     await appConfig.init();
     print(appConfig.toString());
-    GetIt.instance.registerSingleton<AppConfig>(appConfig);
   }
 
-  @override
   void goToInitialPage({@required bool userAlreadyLoggedId}) {
-    String route = userAlreadyLoggedId == true ? NavigationRoutes.orderList : NavigationRoutes.orderList;
+    //String route = userAlreadyLoggedId == true ? NavigationRoutes.orderListWithStream : NavigationRoutes.orderListWithStream;
+    String route = NavigationRoutes.home;
     final INavigation _navigation = GetIt.instance.get<INavigation>();
     _navigation.resetNavigationAndNavigateTo(route);
   }
