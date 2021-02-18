@@ -21,8 +21,8 @@ class DINavigation implements IDIFeature {
             NavigationPage<LoadInitialDataPage>(NavigationRoutes.root),
             NavigationPage<LoadInitialDataPage>(NavigationRoutes.loadInitialData),
             NavigationPage<HomePage>(NavigationRoutes.home),
-            NavigationPage<StreamOrderListPage>(NavigationRoutes.orderListWithStream),
-            NavigationPage<MobxOrderListPage>(NavigationRoutes.orderListWithMobx),
+            NavigationPage<OrderListPageWithStream>(NavigationRoutes.orderListWithStream),
+            NavigationPage<OrderListPageWithMobx>(NavigationRoutes.orderListWithMobx),
           ],
           navigatorKey: GlobalKey<NavigatorState>(),
         );

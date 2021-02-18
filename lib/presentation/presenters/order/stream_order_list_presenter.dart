@@ -10,7 +10,6 @@ class OrderListState {
 }
 
 class StreamOrderListPresenter {
-  //final INavigation _navigation = GetIt.instance.get<INavigation>();
   final IGetOrder getOrder;
 
   var _controller = StreamController<OrderListState>.broadcast();

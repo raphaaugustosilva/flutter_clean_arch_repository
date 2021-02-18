@@ -32,10 +32,10 @@ class DIPresentation implements IDIFeature {
 
     getIt.registerFactory<StreamOrderListPresenter>(() => StreamOrderListPresenter(getOrder: getIt.get<IGetOrder>()));
 
-    getIt.registerFactory<StreamOrderListPage>(() => StreamOrderListPage(presenter: getIt.get<StreamOrderListPresenter>()));
+    getIt.registerFactory<OrderListPageWithStream>(() => OrderListPageWithStream(presenter: getIt.get<StreamOrderListPresenter>()));
 
     getIt.registerFactory<MobxOrderListPresenter>(() => MobxOrderListPresenter(getOrder: getIt.get<IGetOrder>()));
 
-    getIt.registerFactory<MobxOrderListPage>(() => MobxOrderListPage(presenter: getIt.get<MobxOrderListPresenter>()));
+    getIt.registerFactory<OrderListPageWithMobx>(() => OrderListPageWithMobx(presenter: getIt.get<MobxOrderListPresenter>()));
   }
 }

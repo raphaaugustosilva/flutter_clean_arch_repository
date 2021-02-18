@@ -5,15 +5,15 @@ import 'package:poc_flutter_clean_repository/domain/entities/order/order.dart';
 import 'package:poc_flutter_clean_repository/presentation/ui/theme/app_text_theme.dart';
 import 'package:poc_flutter_clean_repository/presentation/presenters/order/stream_order_list_presenter.dart';
 
-class StreamOrderListPage extends StatefulWidget {
+class OrderListPageWithStream extends StatefulWidget {
   final StreamOrderListPresenter presenter;
-  StreamOrderListPage({@required this.presenter});
+  OrderListPageWithStream({@required this.presenter});
 
   @override
-  _StreamOrderListPageState createState() => _StreamOrderListPageState();
+  _OrderListPageStateWithStream createState() => _OrderListPageStateWithStream();
 }
 
-class _StreamOrderListPageState extends State<StreamOrderListPage> {
+class _OrderListPageStateWithStream extends State<OrderListPageWithStream> {
   @override
   void dispose() {
     super.dispose();

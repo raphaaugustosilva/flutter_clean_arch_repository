@@ -5,9 +5,9 @@ import '../../components/components.dart';
 import 'package:poc_flutter_clean_repository/presentation/ui/theme/app_text_theme.dart';
 import 'package:poc_flutter_clean_repository/presentation/presenters/order/mobx_order_list_presenter.dart';
 
-class MobxOrderListPage extends StatelessWidget {
+class OrderListPageWithMobx extends StatelessWidget {
   final MobxOrderListPresenter presenter;
-  MobxOrderListPage({@required this.presenter});
+  OrderListPageWithMobx({@required this.presenter});
 
   @override
   Widget build(BuildContext context) {
