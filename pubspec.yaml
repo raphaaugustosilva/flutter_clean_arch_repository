@@ -10,6 +10,13 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # State management
+  mobx: ^2.2.0
+  flutter_mobx: ^2.1.0
+  
+  # Value equality
+  equatable: ^2.0.5
+  
   # Service locator
   get_it: ^7.6.4
   
@@ -24,4 +31,5 @@ dev_dependencies:
   flutter_lints: ^2.0.3
   build_runner: ^2.4.6
   flutter_launcher_icons: ^0.13.1
+  mobx_codegen: ^2.4.0 #flutter pub run build_runner watch --delete-conflicting-outputs
   

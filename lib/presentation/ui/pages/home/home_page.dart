@@ -1,4 +1,8 @@
+import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:weather_forecast/presentation/presenters/home/home_presenter.dart';
+import 'package:weather_forecast/presentation/theme/theme.dart';
 
 class HomePage extends StatefulWidget {
   static String route = 'home-page';
@@ -9,13 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  final HomePresenter presenter = GetIt.I.get<HomePresenter>();
 
   @override
   Widget build(BuildContext context) {
@@ -24,25 +22,37 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text("BAND WEATHER"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      body: Observer(builder: (_) {
+        //? const LoaderComponent(style: ELoaderComponentStyle.dark) //TODO: criar loader component
+        return presenter.isLoading
+            ? const CircularProgressIndicator()
+            : Column(
+                children: [
+                  ElevatedButton(onPressed: () => presenter.getAllConcerts(), child: const Text("TESTE recuperar shows")),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: AppTheme.defaultScreenPadding,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: presenter.concertList.length,
+                              itemBuilder: (_, index) => ListTile(
+                                title: Text(presenter.concertList[index].city),
+                                subtitle: Text(presenter.concertList[index].country),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+      }),
     );
   }
 }

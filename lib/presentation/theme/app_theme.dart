@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:weather_forecast/presentation/theme/theme.dart';
 
 class AppTheme {
+  static EdgeInsets defaultScreenPadding = const EdgeInsets.symmetric(vertical: 20, horizontal: 16);
+
   InputDecoration inputDecorationDefault({
     required BuildContext context,
     required bool hasFocus,
