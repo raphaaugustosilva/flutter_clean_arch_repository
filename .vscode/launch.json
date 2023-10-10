@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "DEV",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/app/main.dart",
+            "args": [
+                "--dart-define=ENVIRONMENT=DEV",
+                "--dart-define=URL_API=https://",
+                "--dart-define=API_CLIENT_ID=123",
+            ]
+        },
+        {
+            "name": "PROD",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/app/main.dart",
+            "args": [
+                "--dart-define=ENVIRONMENT=PROD",
+                "--dart-define=URL_API=https://",
+                "--dart-define=API_CLIENT_ID=123",
+            ]
+        },
+        {
+            "name": "Run all tests",
+            "type": "dart",
+            "request": "launch",
+            "program": "test/"
+        },
+    ]
+}
