@@ -10,6 +10,12 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Firebase
+  firebase_core: ^2.16.0
+  firebase_crashlytics: ^3.3.6
+  firebase_analytics: ^10.5.0
+  firebase_remote_config: ^4.2.6
+  
   # State management
   mobx: ^2.2.0
   flutter_mobx: ^2.1.0
@@ -20,10 +26,13 @@ dependencies:
   # Service locator
   get_it: ^7.6.4
   
-  #UI
+  # UI
   intl: ^0.18.1
+
+  # General
+  envied: ^0.3.0+3
   
-  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
