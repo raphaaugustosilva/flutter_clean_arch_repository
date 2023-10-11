@@ -26,6 +26,9 @@ dependencies:
   # Service locator
   get_it: ^7.6.4
   
+  # Device
+  connectivity_plus: ^5.0.0
+
   # UI
   intl: ^0.18.1
 
