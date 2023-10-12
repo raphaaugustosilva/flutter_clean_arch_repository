@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:weather_forecast/presentation/ui/pages/home/home_page.dart';
 import 'package:weather_forecast/app/utils/extensions/iterable_extension.dart';
+import 'package:weather_forecast/presentation/ui/pages/splash/splash_page.dart';
 
 class NavigationRoutes {
   static Object? routeArguments(BuildContext context) {
@@ -16,6 +17,7 @@ class NavigationRoutes {
   static bool isViewTrackeByAnalytics(String? routeName) => routesForAnalytics.firstWhereOrNull((e) => e.routeName == routeName)?.removeFromAnalytics == false;
 
   static final List<_RouteItem> _allRoutesList = [
+    _RouteItem(SplashPage.route, "splash", (BuildContext context) => SplashPage(), removeFromAnalyticsScreenTracker: true),
     _RouteItem(HomePage.route, "home", (context) => const HomePage()),
   ];
 
@@ -28,7 +30,5 @@ class _RouteItem {
   final Widget Function(BuildContext) pageBuilder;
   final bool removeFromAnalyticsScreenTracker;
 
-  //TODO: Remover ignore abaixo
-  // ignore: unused_element
   _RouteItem(this.routeName, this.routeFormattedName, this.pageBuilder, {this.removeFromAnalyticsScreenTracker = false});
 }

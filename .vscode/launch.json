@@ -11,8 +11,6 @@
             "program": "lib/app/main.dart",
             "args": [
                 "--dart-define=ENVIRONMENT=DEV",
-                "--dart-define=URL_API=https://",
-                "--dart-define=API_CLIENT_ID=123",
             ]
         },
         {
@@ -22,8 +20,6 @@
             "program": "lib/app/main.dart",
             "args": [
                 "--dart-define=ENVIRONMENT=PROD",
-                "--dart-define=URL_API=https://",
-                "--dart-define=API_CLIENT_ID=123",
             ]
         },
         {

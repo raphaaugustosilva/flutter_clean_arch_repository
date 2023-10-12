@@ -5,6 +5,7 @@ import 'package:weather_forecast/app/navigator/navigation.dart';
 import 'package:weather_forecast/app/navigator/i_navigation.dart';
 import 'package:weather_forecast/app/navigator/navigation_routes.dart';
 import 'package:weather_forecast/presentation/ui/pages/home/home_page.dart';
+import 'package:weather_forecast/presentation/ui/pages/splash/splash_page.dart';
 
 class DINavigation implements IDIFeature {
   static Object? routeArguments(BuildContext context) {
@@ -19,7 +20,8 @@ class DINavigation implements IDIFeature {
       () async {
         return Navigation.init(
           pages: [
-            NavigationPage<HomePage>("/", builder: (_) => const HomePage()),
+            NavigationPage<SplashPage>("/", builder: (_) => SplashPage()),
+            NavigationPage<SplashPage>(SplashPage.route, builder: NavigationRoutes.routes[SplashPage.route]!),
             NavigationPage<HomePage>(HomePage.route, builder: NavigationRoutes.routes[HomePage.route]!),
           ],
           navigatorKey: GlobalKey<NavigatorState>(),

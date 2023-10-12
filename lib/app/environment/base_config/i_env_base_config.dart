@@ -10,10 +10,10 @@ enum EEnvType {
 
 abstract interface class IEnvBaseConfig {
   String get baseUrlApi;
-  String get apiClientId;
+  String get apiKey;
   EEnvType get type;
   String get label;
   Color get color;
 
-  void setApiClientId(String value);
+  void setApiConfig({required String apiUrl, required String apiKey});
 }

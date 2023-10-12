@@ -1,8 +1,9 @@
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:weather_forecast/presentation/presenters/home/home_presenter.dart';
 import 'package:weather_forecast/presentation/theme/theme.dart';
+import 'package:weather_forecast/presentation/ui/components/loader_component.dart';
+import 'package:weather_forecast/presentation/presenters/home/home_presenter.dart';
 
 class HomePage extends StatefulWidget {
   static String route = 'home-page';
@@ -23,9 +24,8 @@ class _HomePageState extends State<HomePage> {
         title: const Text("BAND WEATHER"),
       ),
       body: Observer(builder: (_) {
-        //? const LoaderComponent(style: ELoaderComponentStyle.dark) //TODO: criar loader component
         return presenter.isLoading
-            ? const CircularProgressIndicator()
+            ? const LoaderComponent(style: ELoaderComponentStyle.dark)
             : Column(
                 children: [
                   ElevatedButton(onPressed: () => presenter.getAllConcerts(), child: const Text("TESTE recuperar shows")),

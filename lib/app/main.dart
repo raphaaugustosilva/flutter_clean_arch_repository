@@ -24,13 +24,9 @@ Future<void> main() async {
 
 Future<void> _initEnvironment() async {
   String environmentNameEnv = const String.fromEnvironment('ENVIRONMENT');
-  String urlApiEnv = const String.fromEnvironment('URL_API');
-  String apiClientIdEnv = const String.fromEnvironment('API_CLIENT_ID');
 
   Environment.instance.initConfig(
     environment: environmentNameEnv.getEnvType(),
-    urlApi: urlApiEnv,
-    apiClientId: apiClientIdEnv,
   );
 }
 

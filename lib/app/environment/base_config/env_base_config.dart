@@ -3,21 +3,19 @@ import 'package:weather_forecast/app/environment/base_config/i_env_base_config.d
 
 class EnvBaseConfig implements IEnvBaseConfig {
   late String _baseUrlApi;
-  late String _apiClientId;
+  late String _apiKey;
   late EEnvType _type;
   late String _label;
   late Color _color;
 
-  EnvBaseConfig.dev(String urlApi) {
+  EnvBaseConfig.dev() {
     _type = EEnvType.dev;
-    _baseUrlApi = urlApi;
     _label = "DEV";
     _color = Colors.red;
   }
 
-  EnvBaseConfig.prod(String urlApi) {
+  EnvBaseConfig.prod() {
     _type = EEnvType.prod;
-    _baseUrlApi = urlApi;
     _label = "PROD";
     _color = Colors.blue;
   }
@@ -26,7 +24,7 @@ class EnvBaseConfig implements IEnvBaseConfig {
   String get baseUrlApi => _baseUrlApi;
 
   @override
-  String get apiClientId => _apiClientId;
+  String get apiKey => _apiKey;
 
   @override
   EEnvType get type => _type;
@@ -38,7 +36,8 @@ class EnvBaseConfig implements IEnvBaseConfig {
   Color get color => _color;
 
   @override
-  void setApiClientId(String value) {
-    _apiClientId = value;
+  void setApiConfig({required String apiUrl, required String apiKey}) {
+    _baseUrlApi = apiUrl;
+    _apiKey = apiKey;
   }
 }

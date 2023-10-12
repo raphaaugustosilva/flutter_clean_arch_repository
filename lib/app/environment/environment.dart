@@ -7,19 +7,18 @@ class Environment {
 
   late IEnvBaseConfig config;
 
-  IEnvBaseConfig initConfig({required EEnvType environment, required String urlApi, required String apiClientId}) {
-    config = _getConfig(environment, urlApi, apiClientId);
+  IEnvBaseConfig initConfig({required EEnvType environment}) {
+    config = _getConfig(environment);
     return config;
   }
 
-  IEnvBaseConfig _getConfig(EEnvType environment, String urlApi, String apiClientId) {
+  IEnvBaseConfig _getConfig(EEnvType environment) {
     IEnvBaseConfig config = switch (environment) {
-      EEnvType.dev => EnvBaseConfig.dev(urlApi),
-      EEnvType.prod => EnvBaseConfig.prod(urlApi),
-      _ => EnvBaseConfig.dev(urlApi),
+      EEnvType.dev => EnvBaseConfig.dev(),
+      EEnvType.prod => EnvBaseConfig.prod(),
+      _ => EnvBaseConfig.dev(),
     };
 
-    config.setApiClientId(apiClientId);
     return config;
   }
 }

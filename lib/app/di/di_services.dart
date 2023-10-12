@@ -22,6 +22,7 @@ class DIServices implements IDIFeature {
 
     getIt.registerFactory<IInitialAppCoreServicesUseCase>(() => InitialAppCoreServicesUseCase(
           remoteConfig: getIt.get<IRemoteConfig>(),
+          configurationsApiSetUseCase: getIt.get<IConfigurationsApiSetUseCase>(),
         ));
 
     getIt.registerFactory<IConfigurationsApiSetUseCase>(() => ConfigurationsApiSetUseCase(
