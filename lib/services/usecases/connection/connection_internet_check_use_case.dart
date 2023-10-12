@@ -6,7 +6,7 @@ class ConnectionInternetCheckUseCase implements IConnectionInternetCheckUseCase 
   Future<bool> execute() async {
     bool? hasConnection;
     try {
-      Duration timeoutLimit = const Duration(seconds: 5);
+      Duration timeoutLimit = const Duration(seconds: 3);
       final List<InternetAddress> makeInternetRequisition = await InternetAddress.lookup('google.com').timeout(timeoutLimit);
 
       if (makeInternetRequisition.isNotEmpty && makeInternetRequisition[0].rawAddress.isNotEmpty) {
