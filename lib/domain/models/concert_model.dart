@@ -6,14 +6,16 @@ class ConcertModel extends Equatable implements IEntityModel {
   final DateTime date;
   final String country;
   final String city;
+  final ({double lat, double long}) coordinate;
 
   const ConcertModel({
     required this.id,
     required this.date,
     required this.country,
     required this.city,
+    required this.coordinate,
   });
 
   @override
-  List<Object?> get props => [id, date, country, city];
+  List<Object?> get props => [id, date, country, city, coordinate];
 }
