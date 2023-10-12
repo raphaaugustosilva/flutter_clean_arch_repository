@@ -4,6 +4,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:weather_forecast/presentation/theme/theme.dart';
 import 'package:weather_forecast/presentation/ui/components/loader_component.dart';
 import 'package:weather_forecast/presentation/presenters/home/home_presenter.dart';
+import 'package:weather_forecast/presentation/ui/components/generic_error_component.dart';
 
 class HomePage extends StatefulWidget {
   static String route = 'home-page';
@@ -26,32 +27,39 @@ class _HomePageState extends State<HomePage> {
       body: Observer(builder: (_) {
         return presenter.isLoading
             ? const LoaderComponent(style: ELoaderComponentStyle.dark)
-            : Column(
-                children: [
-                  ElevatedButton(onPressed: () => presenter.getAllConcerts(), child: const Text("TESTE recuperar shows")),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Padding(
-                        padding: AppTheme.defaultScreenPadding,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: presenter.concertList.length,
-                              itemBuilder: (_, index) => ListTile(
-                                title: Text(presenter.concertList[index].city),
-                                subtitle: Text(presenter.concertList[index].country),
-                              ),
+            : presenter.hasError
+                ? Center(
+                    child: GenericErrorComponent(
+                      errorText: presenter.errorText,
+                      tryAgainFunction: () => presenter.getAllConcerts(),
+                    ),
+                  )
+                : Column(
+                    children: [
+                      ElevatedButton(onPressed: () => presenter.getAllConcerts(), child: const Text("TESTE recuperar shows")),
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Padding(
+                            padding: AppTheme.defaultScreenPadding,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: presenter.concertList.length,
+                                  itemBuilder: (_, index) => ListTile(
+                                    title: Text(presenter.concertList[index].city),
+                                    subtitle: Text(presenter.concertList[index].country),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                ],
-              );
+                    ],
+                  );
       }),
     );
   }
