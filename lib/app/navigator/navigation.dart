@@ -30,8 +30,6 @@ class Navigation implements INavigation {
           builder: navigationPage.builder,
         );
       };
-    } on NavigationException catch (_) {
-      rethrow;
     } catch (e) {
       throw NavigationException(innerException: e, message: "Error at pagesRouteFactory");
     }

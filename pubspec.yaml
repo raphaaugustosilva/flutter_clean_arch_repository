@@ -34,6 +34,7 @@ dependencies:
 
   # General
   envied: ^0.3.0+3
+  app_tracking_transparency: ^2.0.4
   
 
 dev_dependencies:
@@ -45,3 +46,8 @@ dev_dependencies:
   flutter_launcher_icons: ^0.13.1
   mobx_codegen: ^2.4.0 #flutter pub run build_runner watch --delete-conflicting-outputs
   
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/presentation/ui/assets/images/svg/
+    - lib/presentation/ui/assets/images/png/
