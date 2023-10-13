@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_forecast/presentation/theme/theme.dart';
 
-extension ExtensionAppUIAppThemeTexts on TextStyle {
+extension XAppUIAppThemeTexts on TextStyle {
   TextStyle get w300 => copyWith(fontWeight: FontWeight.w300);
   TextStyle get w400 => copyWith(fontWeight: FontWeight.w400);
   TextStyle get w500 => copyWith(fontWeight: FontWeight.w500);
