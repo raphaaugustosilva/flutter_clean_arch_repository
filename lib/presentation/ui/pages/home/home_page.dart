@@ -4,7 +4,10 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:weather_forecast/presentation/theme/theme.dart';
 import 'package:weather_forecast/presentation/ui/components/loader_component.dart';
 import 'package:weather_forecast/presentation/presenters/home/home_presenter.dart';
+import 'package:weather_forecast/presentation/ui/components/no_data_component.dart';
+import 'package:weather_forecast/presentation/ui/components/search_bar_component.dart';
 import 'package:weather_forecast/presentation/ui/components/generic_error_component.dart';
+import 'package:weather_forecast/presentation/ui/pages/home/widgets/home_page_concert_widget.dart';
 
 class HomePage extends StatefulWidget {
   static String route = 'home-page';
@@ -16,51 +19,61 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final HomePresenter presenter = GetIt.I.get<HomePresenter>();
+  final TextEditingController searchController = TextEditingController();
+
+  @override
+  void initState() {
+    presenter.getAllConcerts();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("BAND WEATHER"),
+        backgroundColor: AppThemeColors.redDark,
+        title: Text(
+          "BAND WEATHER",
+          style: AppThemeTexts(context).subtitle(color: AppThemeColors.white),
+        ),
       ),
-      body: Observer(builder: (_) {
-        return presenter.isLoading
-            ? const LoaderComponent(style: ELoaderComponentStyle.dark)
-            : presenter.hasError
-                ? Center(
-                    child: GenericErrorComponent(
-                      errorText: presenter.errorText,
-                      tryAgainFunction: () => presenter.getAllConcerts(),
-                    ),
-                  )
-                : Column(
-                    children: [
-                      ElevatedButton(onPressed: () => presenter.getAllConcerts(), child: const Text("TESTE recuperar shows")),
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: Padding(
-                            padding: AppTheme.defaultScreenPadding,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: presenter.concertList.length,
-                                  itemBuilder: (_, index) => ListTile(
-                                    title: Text(presenter.concertList[index].city),
-                                    subtitle: Text(presenter.concertList[index].country),
+      body: Padding(
+        padding: AppTheme.defaultScreenPadding,
+        child: Observer(builder: (_) {
+          return presenter.isLoading
+              ? const LoaderComponent(style: ELoaderComponentStyle.dark)
+              : presenter.hasError
+                  ? Center(
+                      child: GenericErrorComponent(
+                        errorText: presenter.errorText,
+                        tryAgainFunction: () => presenter.getAllConcerts(),
+                      ),
+                    )
+                  : Column(
+                      children: [
+                        SearchBarComponent(
+                          searchbarController: searchController,
+                          isLoading: presenter.isLoading,
+                          hintText: 'Search concerts',
+                          onSearchPressed: () => presenter.searchConcert(searchController.text),
+                          onCleanSearchPressed: () => presenter.cleanSearch(),
+                          onChanged: (String value) => presenter.onChangedSearch(value),
+                        ),
+                        Expanded(
+                          child: presenter.concertList.isEmpty
+                              ? const NoDataComponent()
+                              : SingleChildScrollView(
+                                  child: ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: presenter.concertList.length,
+                                    itemBuilder: (_, index) => HomePageConcertWidget(presenter, concert: presenter.concertList[index]),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
                         ),
-                      ),
-                    ],
-                  );
-      }),
+                      ],
+                    );
+        }),
+      ),
     );
   }
 }

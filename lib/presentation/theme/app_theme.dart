@@ -51,7 +51,7 @@ class AppTheme {
         borderRadius: BorderRadius.circular(8.0),
         borderSide: const BorderSide(
           style: BorderStyle.solid,
-          color: AppThemeColors.primary,
+          color: AppThemeColors.blue,
           width: 1,
         ),
       ),
