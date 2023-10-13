@@ -51,7 +51,7 @@ class _SearchBarStateComponent extends State<SearchBarComponent> {
           height: 56,
           child: TextField(
             textInputAction: TextInputAction.search,
-            autofocus: true,
+            autofocus: false,
             onChanged: (value) {
               handleCloseButtonVisibility();
               widget.onChanged(value);

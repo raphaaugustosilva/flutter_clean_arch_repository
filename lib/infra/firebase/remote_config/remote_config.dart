@@ -21,7 +21,7 @@ class RemoteConfig implements IRemoteConfig {
   Future<bool> fetchSecrets() async {
     Duration cacheDuration = const Duration(hours: 4);
 
-    await _remoteConfig.setConfigSettings(RemoteConfigSettings(fetchTimeout: const Duration(seconds: 5), minimumFetchInterval: cacheDuration));
+    await _remoteConfig.setConfigSettings(RemoteConfigSettings(fetchTimeout: const Duration(seconds: 10), minimumFetchInterval: cacheDuration));
 
     if (await connectionInternetCheckUseCase.execute()) {
       await _remoteConfig.fetch();
