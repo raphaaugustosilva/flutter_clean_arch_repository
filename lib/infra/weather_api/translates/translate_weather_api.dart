@@ -6,6 +6,7 @@ class TranslateWeatherApi extends InfraBaseTranslate<WeatherModel, WeatherApiWea
   @override
   WeatherModel toEntity(response) {
     return WeatherModel(
+      dateTime: response.dateTime!,
       summary: response.weather!.main!,
       description: response.weather?.description,
       icon: response.weather?.icon,

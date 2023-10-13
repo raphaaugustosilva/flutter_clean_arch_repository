@@ -6,23 +6,26 @@ import 'package:weather_forecast/infra/infra_generic/i_infra_response.dart';
 class WeatherApiWeatherResponse extends Equatable implements IInfraResponse {
   final _WeatherWeatherResponse? weather;
   final _WeatherMainResponse? main;
-  final String? dtTxt;
+  final DateTime? dateTime;
+  final String? dateTimeTxt;
   const WeatherApiWeatherResponse({
     required this.weather,
     required this.main,
-    required this.dtTxt,
+    required this.dateTime,
+    required this.dateTimeTxt,
   });
 
   factory WeatherApiWeatherResponse.fromJson(Map<String, dynamic> json) {
     return WeatherApiWeatherResponse(
       weather: (json['weather'] == null || (json['weather'] is List && (json['weather'] as List).isEmpty)) ? null : _WeatherWeatherResponse.fromJson(json['weather'][0]),
       main: json['main'] == null ? null : _WeatherMainResponse.fromJson(json['main']),
-      dtTxt: json['dt_txt'],
+      dateTime: json['dt'] == null ? null : DateTime.fromMillisecondsSinceEpoch(int.parse(json['dt'].toString()) * 1000),
+      dateTimeTxt: json['dt_txt'],
     );
   }
 
   @override
-  List<Object?> get props => [weather, main, dtTxt];
+  List<Object?> get props => [weather, main, dateTime, dateTimeTxt];
 }
 
 class _WeatherMainResponse extends Equatable implements IInfraResponse {

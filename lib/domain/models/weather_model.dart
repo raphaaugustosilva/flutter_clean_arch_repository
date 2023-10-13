@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:weather_forecast/domain/i_entity_model.dart';
 
 class WeatherModel extends Equatable implements IEntityModel {
+  final DateTime dateTime;
   final String summary;
   final String? description;
   final String? icon;
@@ -11,6 +12,7 @@ class WeatherModel extends Equatable implements IEntityModel {
   final double temperatureMax;
 
   const WeatherModel({
+    required this.dateTime,
     required this.summary,
     required this.description,
     required this.icon,
@@ -22,6 +24,7 @@ class WeatherModel extends Equatable implements IEntityModel {
 
   @override
   List<Object?> get props => [
+        dateTime,
         summary,
         description,
         icon,
