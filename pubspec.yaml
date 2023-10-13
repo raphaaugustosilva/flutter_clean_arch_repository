@@ -31,6 +31,8 @@ dependencies:
 
   # UI
   intl: ^0.18.1
+  lottie: ^2.6.0
+  flutter_svg: ^2.0.7
   
   # Remote API
   dio: ^5.3.3
@@ -55,3 +57,4 @@ flutter:
   assets:
     - lib/presentation/ui/assets/images/svg/
     - lib/presentation/ui/assets/images/png/
+    - lib/presentation/ui/assets/animations/json/

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 
 enum EAppImages {
   logoLight,
+  searchIcon,
 }
 
 extension XAppImageAssets on EAppImages {
