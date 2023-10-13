@@ -8,7 +8,6 @@ class ConcertGetAllUseCase implements IConcertGetAllUseCase {
 
   @override
   Future<List<ConcertModel>?> execute() async {
-    await Future.delayed(const Duration(seconds: 2)); //TODO: remover
     return await concertRepository.getAll();
   }
 }
