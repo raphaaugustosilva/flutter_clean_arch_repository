@@ -1,11 +1,14 @@
+import 'package:weather_forecast/app/navigator/i_navigation.dart';
 import 'package:weather_forecast/domain/models/concert_model.dart';
 import 'package:weather_forecast/presentation/ui/utils/debouncer.dart';
 import 'package:weather_forecast/presentation/presenters/home/mobx_home.dart';
+import 'package:weather_forecast/presentation/ui/pages/weather/weather_page.dart';
 import 'package:weather_forecast/domain/services/usecases/concert/i_concert_get_all_use_case.dart';
 
 class HomePresenter extends MobxHome {
+  final INavigation navigation;
   final IConcertGetAllUseCase concertGetAllUseCase;
-  HomePresenter({required this.concertGetAllUseCase});
+  HomePresenter({required this.navigation, required this.concertGetAllUseCase});
 
   final _debounce = Debounce(const Duration(milliseconds: 500));
   List<ConcertModel>? _originalConcertList;
@@ -39,5 +42,9 @@ class HomePresenter extends MobxHome {
     } catch (_) {
       setHasError(true);
     }
+  }
+
+  navigateToWeatherDetail(ConcertModel concert) {
+    navigation.navigateTo(WeatherPage.route, arguments: WeatherPageArgs(concert: concert));
   }
 }

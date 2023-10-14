@@ -32,16 +32,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppThemeColors.redDark,
-        title: Text(
-          "BAND WEATHER",
-          style: AppThemeTexts(context).subtitle(color: AppThemeColors.white),
-        ),
+        foregroundColor: AppThemeColors.white,
+        title: Text("BAND WEATHER", style: AppThemeTexts(context).subtitle(color: AppThemeColors.white)),
       ),
       body: Padding(
         padding: AppTheme.defaultScreenPadding,
         child: Observer(builder: (_) {
           return presenter.isLoading
-              ? const LoaderComponent(style: ELoaderComponentStyle.dark)
+              ? const LoaderComponent(type: ELoaderType.circularLoading, style: ELoaderComponentStyle.dark)
               : presenter.hasError
                   ? Center(
                       child: GenericErrorComponent(
@@ -59,6 +57,7 @@ class _HomePageState extends State<HomePage> {
                           onCleanSearchPressed: () => presenter.cleanSearch(),
                           onChanged: (String value) => presenter.onChangedSearch(value),
                         ),
+                        const SizedBox(height: 10),
                         Expanded(
                           child: presenter.concertList.isEmpty
                               ? const NoDataComponent()

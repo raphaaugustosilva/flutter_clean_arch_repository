@@ -18,6 +18,7 @@ class AppThemeColors {
   static const Color redDark = Color(0xffa61b05);
 
   static const Color blue = Colors.blue;
+  static Color blueMarine = Colors.blue[900]!;
 
   static const Color gray = Color(0xffA0A09F);
   static const Color grayLight = Color(0XFFE0E0E0);

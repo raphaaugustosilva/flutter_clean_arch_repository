@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:weather_forecast/presentation/ui/pages/home/home_page.dart';
 import 'package:weather_forecast/app/utils/extensions/iterable_extension.dart';
 import 'package:weather_forecast/presentation/ui/pages/splash/splash_page.dart';
+import 'package:weather_forecast/presentation/ui/pages/weather/weather_page.dart';
 
 class NavigationRoutes {
   static Object? routeArguments(BuildContext context) {
@@ -19,6 +20,7 @@ class NavigationRoutes {
   static final List<_RouteItem> _allRoutesList = [
     _RouteItem(SplashPage.route, "splash", (BuildContext context) => SplashPage(), removeFromAnalyticsScreenTracker: true),
     _RouteItem(HomePage.route, "home", (context) => const HomePage()),
+    _RouteItem(WeatherPage.route, "weather", (context) => WeatherPage(arguments: ModalRoute.of(context)?.settings.arguments as WeatherPageArgs)),
   ];
 
   static void addRoutesForAnalyticsList(List<({String routeName, String formattedName, bool removeFromAnalytics})> routeForAnalyticsList) => routesForAnalytics.addAll(routeForAnalyticsList);

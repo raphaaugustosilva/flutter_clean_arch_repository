@@ -20,14 +20,14 @@ class AppThemeTexts {
   TextStyle? title({Color? color}) {
     return Theme.of(context!).textTheme.titleMedium?.copyWith(
           fontSize: 24,
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w600,
           color: color ?? AppThemeColors.black,
         );
   }
 
-  TextStyle? titleDetail({Color? color}) {
+  TextStyle? titleBig({Color? color}) {
     return Theme.of(context!).textTheme.titleMedium?.copyWith(
-          fontSize: 28,
+          fontSize: 32,
           fontWeight: FontWeight.w800,
           color: color ?? AppThemeColors.primary,
         );
@@ -35,9 +35,9 @@ class AppThemeTexts {
 
   TextStyle? subtitle({Color? color}) {
     return Theme.of(context!).textTheme.headlineSmall?.copyWith(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-          color: color ?? AppThemeColors.gray,
+          fontSize: 18,
+          fontWeight: FontWeight.w400,
+          color: color ?? AppThemeColors.black,
         );
   }
 
@@ -55,6 +55,15 @@ class AppThemeTexts {
           fontSize: 14,
           fontWeight: FontWeight.w500,
           color: color ?? AppThemeColors.blackLight,
+        );
+  }
+
+  TextStyle? bodySmall({Color? color}) {
+    return Theme.of(context!).textTheme.titleMedium?.copyWith(
+          fontSize: 10,
+          fontWeight: FontWeight.w400,
+          letterSpacing: 0.5,
+          color: color ?? AppThemeColors.black,
         );
   }
 

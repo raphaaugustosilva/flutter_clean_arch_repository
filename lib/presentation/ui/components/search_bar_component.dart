@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:weather_forecast/presentation/theme/theme.dart';
-import 'package:weather_forecast/presentation/ui/assets/images/app_images.dart';
 import 'package:weather_forecast/presentation/ui/utils/keyboard_manager.dart';
+import 'package:weather_forecast/presentation/ui/assets/images/app_images.dart';
 
 class SearchBarComponent extends StatefulWidget {
   final Function() onSearchPressed;
@@ -48,7 +48,7 @@ class _SearchBarStateComponent extends State<SearchBarComponent> {
       mainAxisSize: MainAxisSize.max,
       children: [
         SizedBox(
-          height: 56,
+          height: 42,
           child: TextField(
             textInputAction: TextInputAction.search,
             autofocus: false,
@@ -65,7 +65,7 @@ class _SearchBarStateComponent extends State<SearchBarComponent> {
             keyboardType: TextInputType.text,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
-              contentPadding: const EdgeInsets.symmetric(vertical: 20.5),
+              contentPadding: const EdgeInsets.symmetric(vertical: 13.5),
               fillColor: AppThemeColors.grayLightest,
               filled: true,
               isCollapsed: true,
@@ -76,7 +76,7 @@ class _SearchBarStateComponent extends State<SearchBarComponent> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 19.0, right: 8),
+                padding: const EdgeInsets.only(left: 19.0, right: 10),
                 child: SvgPicture.asset(
                   EAppImages.searchIcon.path(isSvg: true),
                 ),

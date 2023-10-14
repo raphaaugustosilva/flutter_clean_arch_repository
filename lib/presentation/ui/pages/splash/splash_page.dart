@@ -40,6 +40,7 @@ class SplashPage extends StatelessWidget {
                           ),
                         ),
                         const LoaderComponent(
+                          type: ELoaderType.circularLoading,
                           style: ELoaderComponentStyle.dark,
                           size: 60,
                         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 enum EAppAnimations {
+  guitarMan,
   noData,
 }
 
