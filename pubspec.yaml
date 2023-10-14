@@ -57,4 +57,5 @@ flutter:
   assets:
     - lib/presentation/ui/assets/images/svg/
     - lib/presentation/ui/assets/images/png/
+    - lib/presentation/ui/assets/images/png/weather_situations/
     - lib/presentation/ui/assets/animations/json/
