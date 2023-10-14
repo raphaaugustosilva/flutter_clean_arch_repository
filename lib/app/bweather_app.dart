@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_forecast/app/navigator/navigation.dart';
@@ -39,6 +40,13 @@ class BWeatherApp extends StatelessWidget {
       initialRoute: NavigationRoutes.initialRoute,
       navigatorKey: navigation.navigatorKey,
       onGenerateRoute: navigation.pagesRouteFactory(),
+      navigatorObservers: [
+        FirebaseAnalyticsObserver(
+          analytics: FirebaseAnalytics.instance,
+          nameExtractor: (routeSettings) => NavigationRoutes.viewFormattedName(routeSettings.name),
+          routeFilter: (route) => NavigationRoutes.isViewTrackeByAnalytics(route?.settings.name),
+        ),
+      ],
     );
   }
 }

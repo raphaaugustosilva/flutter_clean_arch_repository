@@ -22,8 +22,6 @@ class NavigationRoutes {
     _RouteItem(HomePage.route, "home", (context) => const HomePage()),
     _RouteItem(WeatherPage.route, "weather", (context) => WeatherPage(arguments: ModalRoute.of(context)?.settings.arguments as WeatherPageArgs)),
   ];
-
-  static void addRoutesForAnalyticsList(List<({String routeName, String formattedName, bool removeFromAnalytics})> routeForAnalyticsList) => routesForAnalytics.addAll(routeForAnalyticsList);
 }
 
 class _RouteItem {
