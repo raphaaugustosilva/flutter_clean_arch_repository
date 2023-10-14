@@ -8,6 +8,7 @@ import 'package:weather_forecast/app/bweather_app.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:weather_forecast/app/environment/environment.dart';
 import 'package:weather_forecast/app/environment/base_config/i_env_base_config.dart';
+import 'package:weather_forecast/firebase_options.dart';
 
 Future<void> main() async {
   BindingBase.debugZoneErrorsAreFatal;
@@ -36,7 +37,7 @@ Future<void> _initEnvironment() async {
 
 Future<void> _initializeFirebase() async {
   try {
-    await Firebase.initializeApp();
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
     FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(kReleaseMode);
     FlutterError.onError = (errorDetails) => FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
