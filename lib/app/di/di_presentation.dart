@@ -8,7 +8,6 @@ import 'package:weather_forecast/domain/services/usecases/concert/i_concert_get_
 import 'package:weather_forecast/domain/services/usecases/weather/i_weather_current_get_use_case.dart';
 import 'package:weather_forecast/domain/services/usecases/weather/i_weather_forecast_get_use_case.dart';
 import 'package:weather_forecast/domain/services/usecases/initial_app_core_services/i_initial_app_transparency_use_case.dart';
-import 'package:weather_forecast/domain/services/usecases/initial_app_core_services/i_initial_app_core_services_use_case.dart';
 
 class DIPresentation implements IDIFeature {
   @override
@@ -17,7 +16,6 @@ class DIPresentation implements IDIFeature {
 
     getIt.registerFactory<SplashPresenter>(() => SplashPresenter(
           navigation: getIt.get<INavigation>(),
-          initialAppCoreServicesUseCase: getIt.get<IInitialAppCoreServicesUseCase>(),
           initialAppTransparencyUseCase: getIt.get<IInitialAppTransparencyUseCase>(),
         ));
 

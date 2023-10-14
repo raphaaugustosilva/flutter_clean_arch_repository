@@ -24,9 +24,13 @@ Future<void> main() async {
 
 Future<void> _initEnvironment() async {
   String environmentNameEnv = const String.fromEnvironment('ENVIRONMENT');
+  String environmentWeatherApiUrlEnv = const String.fromEnvironment('WEATHER_API_URL');
+  String environmentWeatherApiKeyEnv = const String.fromEnvironment('WEATHER_API_KEY');
 
   Environment.instance.initConfig(
     environment: environmentNameEnv.getEnvType(),
+    apiUrl: environmentWeatherApiUrlEnv,
+    apiKey: environmentWeatherApiKeyEnv,
   );
 }
 

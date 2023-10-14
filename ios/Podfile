@@ -36,7 +36,6 @@ target 'Runner' do
   pod 'Firebase'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/RemoteConfig'
 end
 
 post_install do |installer|
