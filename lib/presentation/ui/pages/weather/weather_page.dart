@@ -52,6 +52,7 @@ class _WeatherPageState extends State<WeatherPage> {
               : presenter.hasError
                   ? Center(
                       child: GenericErrorComponent(
+                        key: const Key("weather_page_error_component"),
                         errorText: presenter.errorText,
                         tryAgainFunction: () => presenter.getWeatherDetails(),
                       ),

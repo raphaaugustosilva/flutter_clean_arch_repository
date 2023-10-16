@@ -14,19 +14,25 @@ class DIPresentation implements IDIFeature {
   Future<void> configureInjection() async {
     GetIt getIt = GetIt.instance;
 
-    getIt.registerFactory<SplashPresenter>(() => SplashPresenter(
-          navigation: getIt.get<INavigation>(),
-          initialAppTransparencyUseCase: getIt.get<IInitialAppTransparencyUseCase>(),
-        ));
+    if (!getIt.isRegistered<SplashPresenter>()) {
+      getIt.registerFactory<SplashPresenter>(() => SplashPresenter(
+            navigation: getIt.get<INavigation>(),
+            initialAppTransparencyUseCase: getIt.get<IInitialAppTransparencyUseCase>(),
+          ));
+    }
 
-    getIt.registerFactory<HomePresenter>(() => HomePresenter(
-          navigation: getIt.get<INavigation>(),
-          concertGetAllUseCase: getIt.get<IConcertGetAllUseCase>(),
-        ));
+    if (!getIt.isRegistered<HomePresenter>()) {
+      getIt.registerFactory<HomePresenter>(() => HomePresenter(
+            navigation: getIt.get<INavigation>(),
+            concertGetAllUseCase: getIt.get<IConcertGetAllUseCase>(),
+          ));
+    }
 
-    getIt.registerFactory<WeatherPresenter>(() => WeatherPresenter(
-          weatherCurrentGetUseCase: getIt.get<IWeatherCurrentGetUseCase>(),
-          weatherForecastGetUseCase: getIt.get<IWeatherForecastGetUseCase>(),
-        ));
+    if (!getIt.isRegistered<WeatherPresenter>()) {
+      getIt.registerFactory<WeatherPresenter>(() => WeatherPresenter(
+            weatherCurrentGetUseCase: getIt.get<IWeatherCurrentGetUseCase>(),
+            weatherForecastGetUseCase: getIt.get<IWeatherForecastGetUseCase>(),
+          ));
+    }
   }
 }

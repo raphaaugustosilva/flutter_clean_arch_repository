@@ -28,11 +28,17 @@ class LoaderComponent extends StatelessWidget {
                   height: size,
                   width: size,
                   child: CircularProgressIndicator(
+                    key: key == null ? null : Key("${(key as ValueKey).value}_circular_progress"),
                     color: colorValue,
                     strokeWidth: 2.5,
                   ),
                 )
-              : Expanded(child: Lottie.asset(EAppAnimations.guitarMan.path)),
+              : Expanded(
+                  child: Lottie.asset(
+                    key: key == null ? null : Key("${(key as ValueKey).value}_lottie_animation"),
+                    EAppAnimations.guitarMan.path,
+                  ),
+                ),
           if ((loadingText ?? "").trim().isNotEmpty)
             Padding(
               padding: const EdgeInsets.only(top: 20, bottom: 20),

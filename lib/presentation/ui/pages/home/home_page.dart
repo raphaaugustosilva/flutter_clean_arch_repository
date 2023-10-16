@@ -43,6 +43,7 @@ class _HomePageState extends State<HomePage> {
               : presenter.hasError
                   ? Center(
                       child: GenericErrorComponent(
+                        key: const Key("home_page_error_component"),
                         errorText: presenter.errorText,
                         tryAgainFunction: () => presenter.getAllConcerts(),
                       ),
