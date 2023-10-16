@@ -1,0 +1,94 @@
+{
+    "list":[
+        {
+            "weather": [
+                {
+                    "id": "1",
+                    "main": "Rain",
+                    "description": "It will rain all day long",
+                    "icon": "50n"
+                }
+            ],
+            "main": {
+                "temp": 14,
+                "feels_like": 18,
+                "temp_min": 8,
+                "temp_max": 22
+            },
+            "dt": 1697382000,
+            "dt_txt": "2023-10-15 12:00:00"
+        },
+        {
+            "weather": [
+                {
+                    "id": "2",
+                    "main": "Snow",
+                    "description": "It will snow all day long",
+                    "icon": "80n"
+                }
+            ],
+            "main": {
+                "temp": 28,
+                "feels_like": 28,
+                "temp_min": 20,
+                "temp_max": 30
+            },
+            "dt": 1697468400,
+            "dt_txt": "2023-10-16 12:00:00"
+        },
+        {
+            "weather": [
+                {
+                    "id": "3",
+                    "main": "Snow",
+                    "description": "It will snow all day long",
+                    "icon": "80n"
+                }
+            ],
+            "main": {
+                "temp": 10,
+                "feels_like": 9,
+                "temp_min": 8,
+                "temp_max": 14
+            },
+            "dt": 1697554800,
+            "dt_txt": "2023-10-17 12:00:00"
+        },
+        {
+            "weather": [
+                {
+                    "id": "4",
+                    "main": "Snow",
+                    "description": "It will snow all day long",
+                    "icon": "80n"
+                }
+            ],
+            "main": {
+                "temp": 12,
+                "feels_like": 10,
+                "temp_min": 8,
+                "temp_max": 14
+            },
+            "dt": 1697641200,
+            "dt_txt": "2023-10-18 12:00:00"
+        },
+        {
+            "weather": [
+                {
+                    "id": "5",
+                    "main": "Snow",
+                    "description": "It will snow all day long",
+                    "icon": "80n"
+                }
+            ],
+            "main": {
+                "temp": 4,
+                "feels_like": 2,
+                "temp_min": 1,
+                "temp_max": 8
+            },
+            "dt": 1697727600,
+            "dt_txt": "2023-10-19 12:00:00"
+        }
+    ]
+}

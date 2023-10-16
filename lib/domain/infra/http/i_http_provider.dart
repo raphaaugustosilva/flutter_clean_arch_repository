@@ -6,37 +6,4 @@ abstract class IHttpProvider {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
   });
-
-  Future<HttpProviderResponse?> post({
-    required String url,
-    Map<String, dynamic>? queryParameters,
-    Map<String, dynamic>? headers,
-    dynamic body,
-  });
-
-  Future<HttpProviderResponse?> patch({
-    required String url,
-    Map<String, dynamic>? queryParameters,
-    Map<String, dynamic>? headers,
-    dynamic body,
-  });
-
-  Future<HttpProviderResponse?> put({
-    required String url,
-    Map<String, dynamic>? queryParameters,
-    Map<String, dynamic>? headers,
-    dynamic body,
-  });
-
-  Future<HttpProviderResponse?> download({
-    required String url,
-    Map<String, dynamic>? queryParameters,
-    Map<String, dynamic>? headers,
-  });
-
-  Future<HttpProviderResponse?> delete({
-    required String url,
-    Map<String, dynamic>? queryParameters,
-    Map<String, dynamic>? headers,
-  });
 }
