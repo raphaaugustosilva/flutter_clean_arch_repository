@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:weather_forecast/app/environment/environment.dart';
 import 'package:weather_forecast/app/environment/base_config/i_env_base_config.dart';
@@ -31,11 +32,26 @@ void main() {
 
     test('Sets correctly the api configuration inside environment', () async {
       // Arrange
-      Environment.instance.initConfig(environment: EEnvType.dev, apiUrl: "http://test.com", apiKey: "api_key_123_bla_bla_bla");
+      Environment.instance.initConfig(environment: EEnvType.dev, apiUrl: "http://dev.test.com", apiKey: "api_key_123_bla_bla_bla_dev");
 
       // Assert
-      expect(Environment.instance.config.baseUrlApi, "http://test.com");
-      expect(Environment.instance.config.apiKey, "api_key_123_bla_bla_bla");
+      expect(Environment.instance.config.baseUrlApi, "http://dev.test.com");
+      expect(Environment.instance.config.apiKey, "api_key_123_bla_bla_bla_dev");
+      expect(Environment.instance.config.type, EEnvType.dev);
+      expect(Environment.instance.config.label, "DEV");
+      expect(Environment.instance.config.color, Colors.red);
+    });
+
+    test('Sets correctly the api configuration for prod inside environment', () async {
+      // Arrange
+      Environment.instance.initConfig(environment: EEnvType.prod, apiUrl: "http://prod.test.com", apiKey: "api_key_123_bla_bla_bla_prod");
+
+      // Assert
+      expect(Environment.instance.config.baseUrlApi, "http://prod.test.com");
+      expect(Environment.instance.config.apiKey, "api_key_123_bla_bla_bla_prod");
+      expect(Environment.instance.config.type, EEnvType.prod);
+      expect(Environment.instance.config.label, "PROD");
+      expect(Environment.instance.config.color, Colors.blue);
     });
   });
 }

@@ -16,7 +16,6 @@ class Environment {
     IEnvBaseConfig config = switch (environment) {
       EEnvType.dev => EnvBaseConfig.dev(),
       EEnvType.prod => EnvBaseConfig.prod(),
-      _ => EnvBaseConfig.dev(),
     };
 
     config.setApiConfig(apiUrl: apiUrl, apiKey: apiKey);

@@ -9,10 +9,6 @@ import 'package:weather_forecast/presentation/ui/pages/splash/splash_page.dart';
 import 'package:weather_forecast/presentation/ui/pages/weather/weather_page.dart';
 
 class DINavigation implements IDIFeature {
-  static Object? routeArguments(BuildContext context) {
-    return ModalRoute.of(context)?.settings.arguments;
-  }
-
   @override
   Future<void> configureInjection() async {
     GetIt getIt = GetIt.instance;
