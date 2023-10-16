@@ -1,3 +1,3 @@
 abstract interface class IConnectionInternetCheckUseCase {
-  Future<bool> execute();
+  Future<bool> execute({String? url});
 }

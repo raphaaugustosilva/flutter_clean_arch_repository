@@ -3,11 +3,11 @@ import 'package:weather_forecast/domain/services/usecases/connection/i_connectio
 
 class ConnectionInternetCheckUseCase implements IConnectionInternetCheckUseCase {
   @override
-  Future<bool> execute() async {
+  Future<bool> execute({String? url}) async {
     bool? hasConnection;
     try {
       Duration timeoutLimit = const Duration(seconds: 3);
-      final List<InternetAddress> makeInternetRequisition = await InternetAddress.lookup('google.com').timeout(timeoutLimit);
+      final List<InternetAddress> makeInternetRequisition = await InternetAddress.lookup(url ?? 'google.com').timeout(timeoutLimit);
 
       if (makeInternetRequisition.isNotEmpty && makeInternetRequisition[0].rawAddress.isNotEmpty) {
         hasConnection = true;

@@ -11,7 +11,7 @@ class WeatherCurrentGetUseCase implements IWeatherCurrentGetUseCase {
   @override
   Future<WeatherModel?> execute({required double lat, required double long}) async {
     var response = await weatherApi.getCurrentWeather(lat: lat, long: long);
-    WeatherModel? weather = response?.toEntity(TranslateWeatherApi()) as WeatherModel;
+    WeatherModel? weather = response?.toEntity(TranslateWeatherApi()) as WeatherModel?;
     return weather;
   }
 }
