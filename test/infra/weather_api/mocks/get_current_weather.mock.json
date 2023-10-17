@@ -1,0 +1,18 @@
+{
+    "weather": [
+        {
+            "id": "1",
+            "main": "Rain",
+            "description": "It will rain all day long",
+            "icon": "50n"
+        }
+    ],
+    "main": {
+        "temp": 14,
+        "feels_like": 18,
+        "temp_min": 8,
+        "temp_max": 22
+    },
+    "dt": 1697328000,
+    "dt_txt": "2023-10-15 09:00:00"
+}

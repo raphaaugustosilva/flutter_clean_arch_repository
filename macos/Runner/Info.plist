@@ -28,5 +28,7 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This identification will be used to improve your experience with this app.</string>
 </dict>
 </plist>

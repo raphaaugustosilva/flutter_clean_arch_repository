@@ -1,0 +1,11 @@
+flutter_launcher_icons:
+  android: true
+  image_path_android: "lib/presentation/ui/assets/icons/app-icon-android.png"
+  ios: true
+  image_path: "lib/presentation/ui/assets/icons/app-icon.png"
+  remove_alpha_ios: true
+  #Below, adaptative icons (Android)
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "lib/presentation/ui/assets/icons/app-icon-without-background.png"
+  #Command to generate icons from plugin flutter_launcher_icons:
+  #    flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons.yaml

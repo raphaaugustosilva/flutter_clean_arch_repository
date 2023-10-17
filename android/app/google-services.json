@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "174655540783",
+    "project_id": "rapha-weather-forecast",
+    "storage_bucket": "rapha-weather-forecast.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174655540783:android:bb1beb75df72e15e6180da",
+        "android_client_info": {
+          "package_name": "com.rapha.weather.forecast"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMwJLSzpntCZ0qkUFFJv3V4S33vb-4omA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
