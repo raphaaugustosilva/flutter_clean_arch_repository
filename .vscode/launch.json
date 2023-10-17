@@ -12,7 +12,7 @@
             "args": [
                 "--dart-define=ENVIRONMENT=DEV",
                 "--dart-define=WEATHER_API_URL=https://api.openweathermap.org",
-                "--dart-define=WEATHER_API_KEY=YOUR_WEATHER_API_KEY",
+                "--dart-define=WEATHER_API_KEY=",
 
             ]
         },
@@ -24,7 +24,7 @@
             "args": [
                 "--dart-define=ENVIRONMENT=PROD",
                 "--dart-define=WEATHER_API_URL=https://api.openweathermap.org",
-                "--dart-define=WEATHER_API_KEY=YOUR_WEATHER_API_KEY",
+                "--dart-define=WEATHER_API_KEY=",
             ]
         },
         {
