@@ -1,6 +1,6 @@
-# Rock n Roll Staff Weather Forecast
+# Flutter Clean Arch Repository
 
-This project aims to allow a rock'n'roll band staff to track the current weather and the forecast for the 5 next days of the main cities where shows of the tour.
+This project implements a clean arch repository, with an app that aims to allow a rock'n'roll band staff to track the current weather and the forecast for the 5 next days of the main cities where shows of the tour.
 
 
 ## Features
